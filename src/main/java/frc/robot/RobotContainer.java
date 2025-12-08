@@ -8,6 +8,8 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.MotorSpin;
+import frc.robot.commands.RunBelt;
+import frc.robot.subsystems.ConveyorSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Motor;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -24,11 +26,13 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final Motor m_motor = new Motor();
+  private final ConveyorSubsystem conveyor = new ConveyorSubsystem();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController =
       new CommandXboxController(0);
       private final MotorSpin m_motorSpin = new MotorSpin(m_motor, () -> m_driverController.getLeftY());
+      private final RunBelt runBelt = new RunBelt(conveyor);
 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -49,6 +53,7 @@ public class RobotContainer {
   private void configureBindings() {
 
     //m_driverController.a().whileTrue(m_motorSpin);
+    m_driverController.a().onTrue(runBelt);
     
 
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
