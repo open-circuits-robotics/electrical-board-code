@@ -20,7 +20,7 @@ public class RunBelt extends Command{
     @Override
     public void initialize(){
         belt.beltSpeed(1);
-        timer.start();
+        timer.restart();
     }
 
     @Override
@@ -31,8 +31,9 @@ public class RunBelt extends Command{
     @Override
     public boolean isFinished(){
         if (aPressed.getAsBoolean()){
-            timer.restart();
+            return false;
         }
+        System.out.println(timer.get());
         return timer.get() >= 3;
     }
     

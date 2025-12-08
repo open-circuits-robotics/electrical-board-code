@@ -8,7 +8,8 @@ public class Motor extends SubsystemBase {
     Spark motorcontroller;
 
     public Motor(){
-        motorcontroller = new Spark(0);
+        motorcontroller = new Spark(1);
+        //Was originally 0 but M set it to 1 for her simulation testing, CHANGE THIS IF YOU WANT TO USE IT AT 0!
         System.out.println("motor con");
     }
 
