@@ -2,6 +2,45 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
+
+//OK HERE'S HOW TO SIMULATE THE CODE
+//because there's no way M is gonna remember this tomorrow
+//SO FIRSTLY 
+//you're going to go to build.gradle and look for def includeDesktopSupport
+//this should equal true, if it doesn't, set it to true
+//SECONDLY
+//ctrl+shift+P to open the command thingy
+//use command WPILib: Simulate Robot Code and that'll make it start doing stuff
+//THIRDLY
+//about halfway through it's gonna have two check boxes, one for a GUI and one for "use real drivers station"
+//the GUI one on top should be checked, the drivers station one should not be, just double check that and hit enter
+//it's gonna build and then open up a window which brings us to
+//FOURTHLY
+//There'll be a bunch of lil windows, important ones are the top left corner window which controls the robot's perceived state
+//I tend to set this to test but use whatever you need
+//FIFTHLY
+//double check that there's a window talking about PWM values
+//I think settings last so that should be there but if it's not, select "Hardware"
+//and from that dropdown pick the PWM value one and it should show up
+//These are for the Spark motors, they display their speed
+//so this is how you know which controllers are being run
+//and at what speed/direction
+//SIXTHLY, if you HAVE an xbox controller
+//There should be a "joysticks" window in which joystick 0 is set to the xbox controller
+//If it isn't there, there'll be another window called "system joysticks" which lists the xbx controller
+//Grab that and drag it over to joystick 0 and itll show up below, replacing "unassigned"
+//SIXTHLY, if you DO NOT have an xbox controller
+//go to the "system joysticks" window and click and drag "keyboard 0"
+//drag and release over joystick 0 in the big "joysticks" window
+//SEVENTHLY 
+//you should be all set to go, if on keyboard the z button corresponds to A on a controller
+//You can also simulate joysticks with keyboard keys if you go to "DS" and select "keyboard 0 settings"
+//this menu is also where you pick which keyboard keys correspond to which buttons
+//unhelpfully i do not know which of buttons 1 2 3 and 4 correspond with xbox a b x and y
+//except that button 1 is a, since that's what z is set to
+//anyway i'm done rambling, hopefully the people of the future can unravel what all this means
+//my apologies for the many layers of comment, and also general unreadability of these instructions
+
 package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
