@@ -32,7 +32,7 @@ public class RobotContainer {
   private final CommandXboxController m_driverController =
       new CommandXboxController(0);
       private final MotorSpin m_motorSpin = new MotorSpin(m_motor, () -> m_driverController.getLeftY());
-      private final RunBelt runBelt = new RunBelt(conveyor);
+      private final RunBelt runBelt = new RunBelt(conveyor, () -> m_driverController.a().getAsBoolean());
 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
